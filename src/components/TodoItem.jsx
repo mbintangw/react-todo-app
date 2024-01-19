@@ -7,17 +7,28 @@ const styles = {
     fontSize: '24px',
 
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
+    padding: '0 20px',
   },
   checkbox:{
     marginRight: '10px',
     height: '18px',
     width: '18px',
-  }
+  },
+  button: {
+    backgroundColor: '#BB0000',
+    color: '#fff',
+    height: '30px',
+    width: '30px',
+    borderRadius: '100%',
+    border: 'none',
+    cursor: 'pointer',
+    fontSize: '16px',
+  },
 }
 
-const TodoItem = ({todo, toggleCompleted}) => {
+const TodoItem = ({todo, toggleCompleted, deleteTodo}) => {
 
   const getTodoTittleStyle = () => {
     if(todo.completed === true){
@@ -26,11 +37,12 @@ const TodoItem = ({todo, toggleCompleted}) => {
       return {textDecoration: 'none'}
     }
   }
-  
+
   return (
     <div style={styles.todoItem}>
       <input type="checkbox" style={styles.checkbox} onChange={() => toggleCompleted(todo.id)}/> 
       <p style={getTodoTittleStyle()}>{todo.title}</p>
+      <button style={styles.button} onClick={() => deleteTodo(todo.id)}>x</button>
     </div>
     
   )
