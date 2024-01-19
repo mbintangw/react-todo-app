@@ -1,6 +1,28 @@
 import React from 'react'
 
 
+
+
+const TodoItem = ({todo, toggleCompleted, deleteTodo}) => {
+
+  const getTodoTittleStyle = () => {
+    if(todo.completed === true){
+      return {textDecoration: 'line-through'}
+    }else{
+      return {textDecoration: 'none'}
+    }
+  }
+
+  return (
+    <div style={styles.todoItem}>
+      <input type="checkbox" style={styles.checkbox} onChange={() => toggleCompleted(todo.id)}/> 
+      <p style={getTodoTittleStyle()}>{todo.title}</p>
+      <button style={styles.button} onClick={() => deleteTodo(todo.id)}>x</button>
+    </div>
+    
+  )
+}
+
 const styles = {
   todoItem:{
     border: '2px solid #f4f4f4',
@@ -26,26 +48,6 @@ const styles = {
     cursor: 'pointer',
     fontSize: '16px',
   },
-}
-
-const TodoItem = ({todo, toggleCompleted, deleteTodo}) => {
-
-  const getTodoTittleStyle = () => {
-    if(todo.completed === true){
-      return {textDecoration: 'line-through'}
-    }else{
-      return {textDecoration: 'none'}
-    }
-  }
-
-  return (
-    <div style={styles.todoItem}>
-      <input type="checkbox" style={styles.checkbox} onChange={() => toggleCompleted(todo.id)}/> 
-      <p style={getTodoTittleStyle()}>{todo.title}</p>
-      <button style={styles.button} onClick={() => deleteTodo(todo.id)}>x</button>
-    </div>
-    
-  )
 }
 
 export default TodoItem

@@ -1,14 +1,6 @@
 import React from 'react'
 import TodoItem from './TodoItem'
 
-
-const styles = {
-  container: {
-    width: '40%',
-    margin: '0 auto',
-  },
-}
-
 const Todos = ({todos, toggleCompleted, deleteTodo}) => {
   return (
     <div style={styles.container}>
@@ -17,6 +9,13 @@ const Todos = ({todos, toggleCompleted, deleteTodo}) => {
       })}
     </div>
   )
+}
+
+const styles = {
+  container: {
+    width: '40%',
+    margin: '0 auto',
+  },
 }
 
 export default Todos
