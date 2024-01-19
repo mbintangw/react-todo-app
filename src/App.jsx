@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { createContext, useState } from 'react'
 import Todos from './components/Todos'
 import TodoForm from './components/TodoForm'
 
-
+export const TodoContext = createContext()
 
 function App() {
   const [todos, setTodos] = useState([
@@ -55,11 +55,13 @@ function App() {
   }
 
   return (
+    <TodoContext.Provider value={{toggleCompleted, deleteTodo}}>
     <div style={styles.container}>
       <h1 style={styles.tittle}>My Todo List</h1>
       <TodoForm addTodo={addTodo}/>
-      <Todos todos={todos} toggleCompleted={toggleCompleted} deleteTodo={deleteTodo}/>
+      <Todos todos={todos}/>
     </div>
+    </TodoContext.Provider>
   )
 }
 

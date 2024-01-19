@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 
-
-
 const TodoForm = ({addTodo}) => {
   const [title, setTitle] = useState('')
 
@@ -15,7 +13,6 @@ const TodoForm = ({addTodo}) => {
     setTitle(event.target.value)
   }
 
-  console.log(title)
   return (
     <div style={styles.container}>
       <form onSubmit={(event) => {
